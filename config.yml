@@ -1,0 +1,23 @@
+authorName: CTA
+experimentName: nni_searcher
+trialConcurrency: 1
+maxExecDuration: 100h
+maxTrialNum: 50
+trainingServicePlatform: local
+# The path to Search Space
+searchSpacePath: search_space.json
+logDir: D:\\NAS-nni
+useAnnotation: false
+tuner:
+  builtinTunerName: TPE
+  classArgs:
+    #choice: maximize, minimize
+    optimize_mode: maximize
+# The path and the running command of trial
+trial:
+  command: python nni_searcher.py
+  codeDir: .
+  gpuNum: 1
+localConfig:
+  useActiveGpu: true
+  maxTrialNumPerGpu:  1
