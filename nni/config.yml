@@ -6,7 +6,7 @@ maxTrialNum: 50
 trainingServicePlatform: local
 # The path to Search Space
 searchSpacePath: search_space.json
-logDir: D:\\NAS-nni\\nni-experiment
+logDir: /home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment
 useAnnotation: false
 debug: true
 tuner:
@@ -16,9 +16,10 @@ tuner:
     optimize_mode: maximize
 # The path and the running command of trial
 trial:
-  command: python nni_searcher.py
+  command: python3 nni_searcher.py
   codeDir: .
   gpuNum: 1
 localConfig:
-  useActiveGpu: true
-  maxTrialNumPerGpu:  1
+   useActiveGpu: true
+   gpuIndices: 0
+   maxTrialNumPerGpu: 1
