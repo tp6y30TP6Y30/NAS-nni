@@ -40,3 +40,7 @@
 [2021-07-08 22:49:41] INFO (hyperopt.tpe/Thread-1) tpe_transform took 0.000997 seconds
 [2021-07-08 22:49:41] INFO (hyperopt.tpe/Thread-1) TPE using 0 trials
 [2021-07-08 22:49:41] DEBUG (nni.runtime.protocol/Thread-1) Sending command, data: [b'TR00000000000134{"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batch_size": 8, "lr": 0.001, "epochs": 40}, "parameter_index": 0}']
+[2021-07-09 22:09:23] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'TE00000000000000']
+[2021-07-09 22:09:23] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 22:09:23] INFO (nni.runtime.msg_dispatcher_base/MainThread) Dispatcher exiting...
+[2021-07-09 22:09:26] INFO (nni.runtime.msg_dispatcher_base/MainThread) Dispatcher terminiated
