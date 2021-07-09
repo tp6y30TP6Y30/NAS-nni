@@ -6,8 +6,9 @@ maxTrialNum: 50
 trainingServicePlatform: local
 # The path to Search Space
 searchSpacePath: search_space.json
-logDir: D:\\NAS-nni
+logDir: D:\\NAS-nni\\nni-experiment
 useAnnotation: false
+debug: true
 tuner:
   builtinTunerName: TPE
   classArgs:
