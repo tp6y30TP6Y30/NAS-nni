@@ -1,0 +1,88 @@
+[2021-07-09 23:26:44] DEBUG (nni.main/MainThread) START
+[2021-07-09 23:26:44] DEBUG (nni.main/MainThread) decoded exp_params: [{"experimentName":"nni_searcher","trialCommand":"python3 nni_searcher.py","trialCodeDirectory":"/home/lab402-3090/Desktop/An/NAS-nni/nni","trialConcurrency":1,"trialGpuNumber":1,"maxExperimentDuration":"360000s","maxTrialNumber":50,"useAnnotation":false,"debug":true,"experimentWorkingDirectory":"/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment","tuner":{"name":"TPE","classArgs":{"optimize_mode":"maximize"}},"trainingService":{"platform":"local","useActiveGpu":true,"maxTrialNumberPerGpu":1,"gpuIndices":[0]}}]
+[2021-07-09 23:26:44] DEBUG (nni.main/MainThread) exp_params json obj: [{
+    "experimentName": "nni_searcher",
+    "trialCommand": "python3 nni_searcher.py",
+    "trialCodeDirectory": "/home/lab402-3090/Desktop/An/NAS-nni/nni",
+    "trialConcurrency": 1,
+    "trialGpuNumber": 1,
+    "maxExperimentDuration": "360000s",
+    "maxTrialNumber": 50,
+    "useAnnotation": false,
+    "debug": true,
+    "experimentWorkingDirectory": "/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment",
+    "tuner": {
+        "name": "TPE",
+        "classArgs": {
+            "optimize_mode": "maximize"
+        }
+    },
+    "trainingService": {
+        "platform": "local",
+        "useActiveGpu": true,
+        "maxTrialNumberPerGpu": 1,
+        "gpuIndices": [
+            0
+        ]
+    }
+}]
+[2021-07-09 23:26:44] DEBUG (nni.runtime.msg_dispatcher/MainThread) Assessor is not configured
+[2021-07-09 23:26:44] INFO (nni.runtime.msg_dispatcher_base/MainThread) Dispatcher started
+[2021-07-09 23:26:44] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'IN00000000000160']
+[2021-07-09 23:26:44] DEBUG (nni.runtime.protocol/MainThread) Received command, data: [{"batchsize":{"_type":"choice","_value":[4,8,16,32,40]},"lr":{"_type":"choice","_value":[0.0001,0.001,0.01]},"epochs":{"_type":"choice","_value":[20,40,60,80]}}]
+[2021-07-09 23:26:44] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'PI00000000000000']
+[2021-07-09 23:26:44] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 23:26:44] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Initialize], data: [OrderedDict([('batchsize', OrderedDict([('_type', 'choice'), ('_value', [4, 8, 16, 32, 40])])), ('lr', OrderedDict([('_type', 'choice'), ('_value', [0.0001, 0.001, 0.01])])), ('epochs', OrderedDict([('_type', 'choice'), ('_value', [20, 40, 60, 80])]))])]
+[2021-07-09 23:26:44] DEBUG (nni.runtime.protocol/Thread-1) Sending command, data: [b'ID00000000000000']
+[2021-07-09 23:26:44] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Ping], data: []
+[2021-07-09 23:26:44] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'GE00000000000001']
+[2021-07-09 23:26:44] DEBUG (nni.runtime.protocol/MainThread) Received command, data: [1]
+[2021-07-09 23:26:44] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.RequestTrialJobs], data: [1]
+[2021-07-09 23:26:44] DEBUG (nni.runtime.msg_dispatcher/Thread-1) requesting for generating params of [0]
+[2021-07-09 23:26:44] DEBUG (nni.tuner/Thread-1) generating param for 0
+[2021-07-09 23:26:44] INFO (hyperopt.tpe/Thread-1) tpe_transform took 0.000719 seconds
+[2021-07-09 23:26:44] INFO (hyperopt.tpe/Thread-1) TPE using 0 trials
+[2021-07-09 23:26:44] DEBUG (nni.runtime.protocol/Thread-1) Sending command, data: [b'TR00000000000134{"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batchsize": 8, "lr": 0.0001, "epochs": 40}, "parameter_index": 0}']
+[2021-07-09 23:26:49] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'PI00000000000000']
+[2021-07-09 23:26:49] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 23:26:49] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Ping], data: []
+[2021-07-09 23:26:54] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'PI00000000000000']
+[2021-07-09 23:26:54] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 23:26:54] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Ping], data: []
+[2021-07-09 23:26:59] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'PI00000000000000']
+[2021-07-09 23:26:59] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 23:26:59] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Ping], data: []
+[2021-07-09 23:26:59] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'EN00000000000209']
+[2021-07-09 23:26:59] DEBUG (nni.runtime.protocol/MainThread) Received command, data: [{"trial_job_id":"wtn5A","event":"FAILED","hyper_params":"{\"parameter_id\": 0, \"parameter_source\": \"algorithm\", \"parameters\": {\"batchsize\": 8, \"lr\": 0.0001, \"epochs\": 40}, \"parameter_index\": 0}"}]
+[2021-07-09 23:26:59] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'GE00000000000001']
+[2021-07-09 23:26:59] DEBUG (nni.runtime.protocol/MainThread) Received command, data: [1]
+[2021-07-09 23:26:59] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.RequestTrialJobs], data: [1]
+[2021-07-09 23:26:59] DEBUG (nni.runtime.msg_dispatcher/Thread-1) requesting for generating params of [1]
+[2021-07-09 23:26:59] DEBUG (nni.tuner/Thread-1) generating param for 1
+[2021-07-09 23:26:59] DEBUG (nni.runtime.msg_dispatcher_base/Thread-2) process_command: command: [CommandType.TrialEnd], data: [OrderedDict([('trial_job_id', 'wtn5A'), ('event', 'FAILED'), ('hyper_params', '{"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batchsize": 8, "lr": 0.0001, "epochs": 40}, "parameter_index": 0}')])]
+[2021-07-09 23:26:59] INFO (hyperopt.tpe/Thread-1) tpe_transform took 0.000762 seconds
+[2021-07-09 23:26:59] INFO (hyperopt.tpe/Thread-1) TPE using 0 trials
+[2021-07-09 23:26:59] DEBUG (nni.runtime.protocol/Thread-1) Sending command, data: [b'TR00000000000134{"parameter_id": 1, "parameter_source": "algorithm", "parameters": {"batchsize": 40, "lr": 0.001, "epochs": 80}, "parameter_index": 0}']
+[2021-07-09 23:27:04] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'PI00000000000000']
+[2021-07-09 23:27:04] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 23:27:04] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Ping], data: []
+[2021-07-09 23:27:09] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'PI00000000000000']
+[2021-07-09 23:27:09] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 23:27:09] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Ping], data: []
+[2021-07-09 23:27:14] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'PI00000000000000']
+[2021-07-09 23:27:14] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 23:27:14] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Ping], data: []
+[2021-07-09 23:27:14] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'EN00000000000209']
+[2021-07-09 23:27:14] DEBUG (nni.runtime.protocol/MainThread) Received command, data: [{"trial_job_id":"keqRy","event":"FAILED","hyper_params":"{\"parameter_id\": 1, \"parameter_source\": \"algorithm\", \"parameters\": {\"batchsize\": 40, \"lr\": 0.001, \"epochs\": 80}, \"parameter_index\": 0}"}]
+[2021-07-09 23:27:14] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'GE00000000000001']
+[2021-07-09 23:27:14] DEBUG (nni.runtime.msg_dispatcher_base/Thread-2) process_command: command: [CommandType.TrialEnd], data: [OrderedDict([('trial_job_id', 'keqRy'), ('event', 'FAILED'), ('hyper_params', '{"parameter_id": 1, "parameter_source": "algorithm", "parameters": {"batchsize": 40, "lr": 0.001, "epochs": 80}, "parameter_index": 0}')])]
+[2021-07-09 23:27:14] DEBUG (nni.runtime.protocol/MainThread) Received command, data: [1]
+[2021-07-09 23:27:14] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.RequestTrialJobs], data: [1]
+[2021-07-09 23:27:14] DEBUG (nni.runtime.msg_dispatcher/Thread-1) requesting for generating params of [2]
+[2021-07-09 23:27:14] DEBUG (nni.tuner/Thread-1) generating param for 2
+[2021-07-09 23:27:14] INFO (hyperopt.tpe/Thread-1) tpe_transform took 0.000744 seconds
+[2021-07-09 23:27:14] INFO (hyperopt.tpe/Thread-1) TPE using 0 trials
+[2021-07-09 23:27:14] DEBUG (nni.runtime.protocol/Thread-1) Sending command, data: [b'TR00000000000133{"parameter_id": 2, "parameter_source": "algorithm", "parameters": {"batchsize": 32, "lr": 0.01, "epochs": 80}, "parameter_index": 0}']
+[2021-07-09 23:27:19] DEBUG (nni.runtime.protocol/MainThread) Received command, header: [b'PI00000000000000']
+[2021-07-09 23:27:19] DEBUG (nni.runtime.protocol/MainThread) Received command, data: []
+[2021-07-09 23:27:19] DEBUG (nni.runtime.msg_dispatcher_base/Thread-1) process_command: command: [CommandType.Ping], data: []

@@ -1,0 +1,154 @@
+[2021-07-09 23:26:43] DEBUG (SqlDB) Database directory: /home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/XBJ4Umew/db
+[2021-07-09 23:26:43] INFO (NNIDataStore) Datastore initialization done
+[2021-07-09 23:26:43] INFO (RestServer) RestServer start
+[2021-07-09 23:26:43] INFO (RestServer) RestServer base port is 8080
+[2021-07-09 23:26:43] INFO (main) Rest server listening on: http://0.0.0.0:8080
+[2021-07-09 23:26:44] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:26:44] DEBUG (NNIRestHandler) POST: /experiment: body: { experimentName: 'nni_searcher',
+  trialCommand: 'python3 nni_searcher.py',
+  trialCodeDirectory: '/home/lab402-3090/Desktop/An/NAS-nni/nni',
+  trialConcurrency: 1,
+  trialGpuNumber: 1,
+  maxExperimentDuration: '360000s',
+  maxTrialNumber: 50,
+  useAnnotation: false,
+  debug: true,
+  experimentWorkingDirectory: '/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment',
+  tuner: { name: 'TPE', classArgs: { optimize_mode: 'maximize' } },
+  trainingService:
+   { platform: 'local',
+     useActiveGpu: true,
+     maxTrialNumberPerGpu: 1,
+     gpuIndices: [ 0 ] },
+  searchSpace:
+   { batchsize: { _type: 'choice', _value: [Array] },
+     lr: { _type: 'choice', _value: [Array] },
+     epochs: { _type: 'choice', _value: [Array] } } }
+[2021-07-09 23:26:44] INFO (NNIManager) Starting experiment: XBJ4Umew
+[2021-07-09 23:26:44] INFO (NNIManager) Setup training service...
+[2021-07-09 23:26:44] INFO (LocalTrainingService) Construct local machine training service.
+[2021-07-09 23:26:44] INFO (NNIManager) Setup tuner...
+[2021-07-09 23:26:44] DEBUG (NNIManager) dispatcher command: python3 -m nni --exp_params eyJleHBlcmltZW50TmFtZSI6Im5uaV9zZWFyY2hlciIsInRyaWFsQ29tbWFuZCI6InB5dGhvbjMgbm5pX3NlYXJjaGVyLnB5IiwidHJpYWxDb2RlRGlyZWN0b3J5IjoiL2hvbWUvbGFiNDAyLTMwOTAvRGVza3RvcC9Bbi9OQVMtbm5pL25uaSIsInRyaWFsQ29uY3VycmVuY3kiOjEsInRyaWFsR3B1TnVtYmVyIjoxLCJtYXhFeHBlcmltZW50RHVyYXRpb24iOiIzNjAwMDBzIiwibWF4VHJpYWxOdW1iZXIiOjUwLCJ1c2VBbm5vdGF0aW9uIjpmYWxzZSwiZGVidWciOnRydWUsImV4cGVyaW1lbnRXb3JraW5nRGlyZWN0b3J5IjoiL2hvbWUvbGFiNDAyLTMwOTAvRGVza3RvcC9Bbi9OQVMtbm5pL25uaS9ubmktZXhwZXJpbWVudCIsInR1bmVyIjp7Im5hbWUiOiJUUEUiLCJjbGFzc0FyZ3MiOnsib3B0aW1pemVfbW9kZSI6Im1heGltaXplIn19LCJ0cmFpbmluZ1NlcnZpY2UiOnsicGxhdGZvcm0iOiJsb2NhbCIsInVzZUFjdGl2ZUdwdSI6dHJ1ZSwibWF4VHJpYWxOdW1iZXJQZXJHcHUiOjEsImdwdUluZGljZXMiOlswXX19
+[2021-07-09 23:26:44] INFO (NNIManager) Change NNIManager status from: INITIALIZED to: RUNNING
+[2021-07-09 23:26:44] INFO (NNIManager) Add event listeners
+[2021-07-09 23:26:44] DEBUG (NNIManager) Send tuner command: INITIALIZE: [object Object]
+[2021-07-09 23:26:44] DEBUG (IpcInterface) ipcInterface command type: [IN], content:[{"batchsize":{"_type":"choice","_value":[4,8,16,32,40]},"lr":{"_type":"choice","_value":[0.0001,0.001,0.01]},"epochs":{"_type":"choice","_value":[20,40,60,80]}}]
+[2021-07-09 23:26:44] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:26:44] INFO (LocalTrainingService) Run local machine training service.
+[2021-07-09 23:26:44] WARNING (GPUScheduler) gpu_metrics file does not exist!
+[2021-07-09 23:26:44] INFO (NNIManager) NNIManager received command from dispatcher: ID, 
+[2021-07-09 23:26:44] DEBUG (IpcInterface) ipcInterface command type: [GE], content:[1]
+[2021-07-09 23:26:44] INFO (NNIManager) NNIManager received command from dispatcher: TR, {"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batchsize": 8, "lr": 0.0001, "epochs": 40}, "parameter_index": 0}
+[2021-07-09 23:26:47] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:26:47] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:26:47] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:26:47] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:26:47] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:26:47] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:26:47] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:26:47] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:26:47] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:26:47] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:26:47] DEBUG (NNIRestHandler) GET: /version: body: {}
+[2021-07-09 23:26:48] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:26:48] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:26:48] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:26:48] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:26:48] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:26:48] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:26:49] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:26:49] INFO (NNIManager) submitTrialJob: form: { sequenceId: 0,
+  hyperParameters:
+   { value:
+      '{"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batchsize": 8, "lr": 0.0001, "epochs": 40}, "parameter_index": 0}',
+     index: 0 } }
+[2021-07-09 23:26:49] DEBUG (LocalTrainingService) submitTrialJob: return: LocalTrialJobDetail {
+  id: 'wtn5A',
+  status: 'WAITING',
+  submitTime: 1625844409583,
+  workingDirectory:
+   '/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/XBJ4Umew/trials/wtn5A',
+  form:
+   { sequenceId: 0,
+     hyperParameters:
+      { value:
+         '{"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batchsize": 8, "lr": 0.0001, "epochs": 40}, "parameter_index": 0}',
+        index: 0 } },
+  url:
+   'file://localhost:/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/XBJ4Umew/trials/wtn5A',
+  gpuIndices: [] }
+[2021-07-09 23:26:54] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:26:58] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:26:58] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:26:58] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:26:58] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:26:58] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:26:58] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:26:59] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:26:59] DEBUG (LocalTrainingService) trialJob status update: wtn5A, FAILED
+[2021-07-09 23:26:59] INFO (NNIManager) Trial job wtn5A status changed from WAITING to FAILED
+[2021-07-09 23:26:59] DEBUG (IpcInterface) ipcInterface command type: [EN], content:[{"trial_job_id":"wtn5A","event":"FAILED","hyper_params":"{\"parameter_id\": 0, \"parameter_source\": \"algorithm\", \"parameters\": {\"batchsize\": 8, \"lr\": 0.0001, \"epochs\": 40}, \"parameter_index\": 0}"}]
+[2021-07-09 23:26:59] DEBUG (IpcInterface) ipcInterface command type: [GE], content:[1]
+[2021-07-09 23:26:59] INFO (NNIManager) NNIManager received command from dispatcher: TR, {"parameter_id": 1, "parameter_source": "algorithm", "parameters": {"batchsize": 40, "lr": 0.001, "epochs": 80}, "parameter_index": 0}
+[2021-07-09 23:27:04] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:27:04] INFO (NNIManager) submitTrialJob: form: { sequenceId: 1,
+  hyperParameters:
+   { value:
+      '{"parameter_id": 1, "parameter_source": "algorithm", "parameters": {"batchsize": 40, "lr": 0.001, "epochs": 80}, "parameter_index": 0}',
+     index: 0 } }
+[2021-07-09 23:27:04] DEBUG (LocalTrainingService) submitTrialJob: return: LocalTrialJobDetail {
+  id: 'keqRy',
+  status: 'WAITING',
+  submitTime: 1625844424595,
+  workingDirectory:
+   '/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/XBJ4Umew/trials/keqRy',
+  form:
+   { sequenceId: 1,
+     hyperParameters:
+      { value:
+         '{"parameter_id": 1, "parameter_source": "algorithm", "parameters": {"batchsize": 40, "lr": 0.001, "epochs": 80}, "parameter_index": 0}',
+        index: 0 } },
+  url:
+   'file://localhost:/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/XBJ4Umew/trials/keqRy',
+  gpuIndices: [] }
+[2021-07-09 23:27:08] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:27:08] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:27:08] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:27:08] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:27:08] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:27:08] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:27:09] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:27:09] INFO (NNIManager) Trial job keqRy status changed from WAITING to RUNNING
+[2021-07-09 23:27:14] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:27:14] DEBUG (LocalTrainingService) trialJob status update: keqRy, FAILED
+[2021-07-09 23:27:14] INFO (NNIManager) Trial job keqRy status changed from RUNNING to FAILED
+[2021-07-09 23:27:14] DEBUG (IpcInterface) ipcInterface command type: [EN], content:[{"trial_job_id":"keqRy","event":"FAILED","hyper_params":"{\"parameter_id\": 1, \"parameter_source\": \"algorithm\", \"parameters\": {\"batchsize\": 40, \"lr\": 0.001, \"epochs\": 80}, \"parameter_index\": 0}"}]
+[2021-07-09 23:27:14] DEBUG (IpcInterface) ipcInterface command type: [GE], content:[1]
+[2021-07-09 23:27:14] INFO (NNIManager) NNIManager received command from dispatcher: TR, {"parameter_id": 2, "parameter_source": "algorithm", "parameters": {"batchsize": 32, "lr": 0.01, "epochs": 80}, "parameter_index": 0}
+[2021-07-09 23:27:18] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:27:18] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:27:18] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:27:18] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:27:18] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:27:18] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:27:19] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:27:19] INFO (NNIManager) submitTrialJob: form: { sequenceId: 2,
+  hyperParameters:
+   { value:
+      '{"parameter_id": 2, "parameter_source": "algorithm", "parameters": {"batchsize": 32, "lr": 0.01, "epochs": 80}, "parameter_index": 0}',
+     index: 0 } }
+[2021-07-09 23:27:19] DEBUG (LocalTrainingService) submitTrialJob: return: LocalTrialJobDetail {
+  id: 'AcKtG',
+  status: 'WAITING',
+  submitTime: 1625844439612,
+  workingDirectory:
+   '/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/XBJ4Umew/trials/AcKtG',
+  form:
+   { sequenceId: 2,
+     hyperParameters:
+      { value:
+         '{"parameter_id": 2, "parameter_source": "algorithm", "parameters": {"batchsize": 32, "lr": 0.01, "epochs": 80}, "parameter_index": 0}',
+        index: 0 } },
+  url:
+   'file://localhost:/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/XBJ4Umew/trials/AcKtG',
+  gpuIndices: [] }
