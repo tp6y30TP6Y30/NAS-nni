@@ -46,9 +46,9 @@ def valid(dataloader, model, device, optimizer, criterion, nni_params, epoch, ep
 			loss_data += loss.item()
 			hit += sum(torch.argmax(pred, dim = 1) == label)
 		print('classify loss: ', loss_data / len(dataloader))
-		print('Accuracy: {:.2f}%'.format(hit.true_divide(len(dataloader) * nni_params["batchsize"]) * 100))
+		print('Accuracy: {:.2f}%'.format(hit.true_divide(len(dataloader) * nni_params["batch_size"]) * 100))
 		print()
-	accuracy = hit.true_divide(len(dataloader) * nni_params["batchsize"])
+	accuracy = hit.true_divide(len(dataloader) * nni_params["batch_size"])
 	return accuracy
 
 def main(nni_params):

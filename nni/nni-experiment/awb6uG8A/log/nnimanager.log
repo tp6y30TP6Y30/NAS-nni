@@ -1,0 +1,186 @@
+[2021-07-09 23:33:06] DEBUG (SqlDB) Database directory: /home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/awb6uG8A/db
+[2021-07-09 23:33:06] INFO (NNIDataStore) Datastore initialization done
+[2021-07-09 23:33:06] INFO (RestServer) RestServer start
+[2021-07-09 23:33:06] INFO (RestServer) RestServer base port is 8080
+[2021-07-09 23:33:06] INFO (main) Rest server listening on: http://0.0.0.0:8080
+[2021-07-09 23:33:07] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:07] DEBUG (NNIRestHandler) POST: /experiment: body: { experimentName: 'nni_searcher',
+  trialCommand: 'python3 nni_searcher.py',
+  trialCodeDirectory: '/home/lab402-3090/Desktop/An/NAS-nni/nni',
+  trialConcurrency: 1,
+  trialGpuNumber: 1,
+  maxExperimentDuration: '360000s',
+  maxTrialNumber: 50,
+  useAnnotation: false,
+  debug: true,
+  experimentWorkingDirectory: '/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment',
+  tuner: { name: 'TPE', classArgs: { optimize_mode: 'maximize' } },
+  trainingService:
+   { platform: 'local',
+     useActiveGpu: true,
+     maxTrialNumberPerGpu: 1,
+     gpuIndices: [ 0 ] },
+  searchSpace:
+   { batch_size: { _type: 'choice', _value: [Array] },
+     lr: { _type: 'choice', _value: [Array] },
+     epochs: { _type: 'choice', _value: [Array] } } }
+[2021-07-09 23:33:07] INFO (NNIManager) Starting experiment: awb6uG8A
+[2021-07-09 23:33:07] INFO (NNIManager) Setup training service...
+[2021-07-09 23:33:07] INFO (LocalTrainingService) Construct local machine training service.
+[2021-07-09 23:33:07] INFO (NNIManager) Setup tuner...
+[2021-07-09 23:33:07] DEBUG (NNIManager) dispatcher command: python3 -m nni --exp_params eyJleHBlcmltZW50TmFtZSI6Im5uaV9zZWFyY2hlciIsInRyaWFsQ29tbWFuZCI6InB5dGhvbjMgbm5pX3NlYXJjaGVyLnB5IiwidHJpYWxDb2RlRGlyZWN0b3J5IjoiL2hvbWUvbGFiNDAyLTMwOTAvRGVza3RvcC9Bbi9OQVMtbm5pL25uaSIsInRyaWFsQ29uY3VycmVuY3kiOjEsInRyaWFsR3B1TnVtYmVyIjoxLCJtYXhFeHBlcmltZW50RHVyYXRpb24iOiIzNjAwMDBzIiwibWF4VHJpYWxOdW1iZXIiOjUwLCJ1c2VBbm5vdGF0aW9uIjpmYWxzZSwiZGVidWciOnRydWUsImV4cGVyaW1lbnRXb3JraW5nRGlyZWN0b3J5IjoiL2hvbWUvbGFiNDAyLTMwOTAvRGVza3RvcC9Bbi9OQVMtbm5pL25uaS9ubmktZXhwZXJpbWVudCIsInR1bmVyIjp7Im5hbWUiOiJUUEUiLCJjbGFzc0FyZ3MiOnsib3B0aW1pemVfbW9kZSI6Im1heGltaXplIn19LCJ0cmFpbmluZ1NlcnZpY2UiOnsicGxhdGZvcm0iOiJsb2NhbCIsInVzZUFjdGl2ZUdwdSI6dHJ1ZSwibWF4VHJpYWxOdW1iZXJQZXJHcHUiOjEsImdwdUluZGljZXMiOlswXX19
+[2021-07-09 23:33:07] INFO (NNIManager) Change NNIManager status from: INITIALIZED to: RUNNING
+[2021-07-09 23:33:07] INFO (NNIManager) Add event listeners
+[2021-07-09 23:33:07] DEBUG (NNIManager) Send tuner command: INITIALIZE: [object Object]
+[2021-07-09 23:33:07] DEBUG (IpcInterface) ipcInterface command type: [IN], content:[{"batch_size":{"_type":"choice","_value":[4,8,16,32,40]},"lr":{"_type":"choice","_value":[0.0001,0.001,0.01]},"epochs":{"_type":"choice","_value":[20,40,60,80]}}]
+[2021-07-09 23:33:07] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:07] INFO (LocalTrainingService) Run local machine training service.
+[2021-07-09 23:33:07] WARNING (GPUScheduler) gpu_metrics file does not exist!
+[2021-07-09 23:33:07] INFO (NNIManager) NNIManager received command from dispatcher: ID, 
+[2021-07-09 23:33:07] DEBUG (IpcInterface) ipcInterface command type: [GE], content:[1]
+[2021-07-09 23:33:07] INFO (NNIManager) NNIManager received command from dispatcher: TR, {"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batch_size": 4, "lr": 0.001, "epochs": 80}, "parameter_index": 0}
+[2021-07-09 23:33:10] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:10] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:10] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:10] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:10] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:10] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:10] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:10] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:10] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:10] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:10] DEBUG (NNIRestHandler) GET: /version: body: {}
+[2021-07-09 23:33:11] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:11] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:11] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:11] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:11] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:11] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:12] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:12] INFO (NNIManager) submitTrialJob: form: { sequenceId: 0,
+  hyperParameters:
+   { value:
+      '{"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batch_size": 4, "lr": 0.001, "epochs": 80}, "parameter_index": 0}',
+     index: 0 } }
+[2021-07-09 23:33:12] DEBUG (LocalTrainingService) submitTrialJob: return: LocalTrialJobDetail {
+  id: 'AsByD',
+  status: 'WAITING',
+  submitTime: 1625844792115,
+  workingDirectory:
+   '/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/awb6uG8A/trials/AsByD',
+  form:
+   { sequenceId: 0,
+     hyperParameters:
+      { value:
+         '{"parameter_id": 0, "parameter_source": "algorithm", "parameters": {"batch_size": 4, "lr": 0.001, "epochs": 80}, "parameter_index": 0}',
+        index: 0 } },
+  url:
+   'file://localhost:/home/lab402-3090/Desktop/An/NAS-nni/nni/nni-experiment/awb6uG8A/trials/AsByD',
+  gpuIndices: [] }
+[2021-07-09 23:33:17] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:17] INFO (NNIManager) Trial job AsByD status changed from WAITING to RUNNING
+[2021-07-09 23:33:21] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:21] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:21] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:21] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:21] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:21] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:22] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:22] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:22] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:22] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:22] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:22] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:22] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:22] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:22] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:22] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:22] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:22] DEBUG (NNIRestHandler) GET: /version: body: {}
+[2021-07-09 23:33:23] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:23] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:23] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:23] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:23] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:23] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:25] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:25] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:25] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:25] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:25] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:27] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:28] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:28] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:28] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:28] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:28] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:28] DEBUG (NNIRestHandler) GET: /version: body: {}
+[2021-07-09 23:33:29] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:29] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:29] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:29] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:29] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:29] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:30] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:30] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:30] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:30] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:30] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:32] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:32] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:32] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:32] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:32] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:32] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:32] DEBUG (NNIRestHandler) GET: /version: body: {}
+[2021-07-09 23:33:33] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:33] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:33] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:33] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:33] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:33] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:37] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:42] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:43] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:43] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:43] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:43] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:43] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:43] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:47] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:52] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:33:53] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:33:53] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:33:53] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:33:53] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:33:53] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:33:53] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:33:57] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:34:02] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:34:02] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:34:02] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:34:02] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:34:02] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:34:02] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:34:04] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:34:04] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:34:04] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:34:04] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:34:04] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:34:04] DEBUG (NNIRestHandler) GET: /version: body: {}
+[2021-07-09 23:34:05] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:34:05] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:34:05] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:34:05] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:34:05] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:34:05] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:34:07] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:34:12] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:34:15] DEBUG (NNIRestHandler) GET: /experiment: body: {}
+[2021-07-09 23:34:15] DEBUG (NNIRestHandler) GET: /trial-jobs: body: {}
+[2021-07-09 23:34:15] DEBUG (NNIRestHandler) GET: /metric-data: body: {}
+[2021-07-09 23:34:15] DEBUG (NNIDataStore) getTrialJobsByReplayEvents begin
+[2021-07-09 23:34:15] DEBUG (NNIDataStore) getTrialJobsByReplayEvents done
+[2021-07-09 23:34:15] DEBUG (NNIRestHandler) GET: /check-status: body: {}
+[2021-07-09 23:34:17] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
+[2021-07-09 23:34:22] DEBUG (IpcInterface) ipcInterface command type: [PI], content:[]
