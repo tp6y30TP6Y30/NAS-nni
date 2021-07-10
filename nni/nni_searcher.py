@@ -48,7 +48,7 @@ def valid(dataloader, model, device, optimizer, criterion, nni_params, epoch, ep
 		print('classify loss: ', loss_data / len(dataloader))
 		print('Accuracy: {:.2f}%'.format(hit.true_divide(len(dataloader) * nni_params["batch_size"]) * 100))
 		print()
-	accuracy = hit.true_divide(len(dataloader) * nni_params["batch_size"])
+	accuracy = hit.true_divide(len(dataloader) * nni_params["batch_size"]).item()
 	return accuracy
 
 def main(nni_params):
@@ -67,7 +67,7 @@ def main(nni_params):
 	criterion = nn.CrossEntropyLoss().to(device).float()
 
 	# train
-	for epoch in range(nni_params['epochs']):
+	for epoch in range(1, nni_params['epochs'] + 1):
 		train(train_dataloader, model, device, optimizer, criterion, nni_params, epoch, nni_params['epochs'])
 		acc = valid(valid_dataloader, model, device, optimizer, criterion, nni_params, epoch, nni_params['epochs'])
 		nni.report_intermediate_result(acc)
