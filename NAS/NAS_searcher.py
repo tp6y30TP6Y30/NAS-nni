@@ -33,7 +33,7 @@ def parse_args():
 	parser.add_argument('--lr', default = 1e-3, type = float,
 						help = "The training learning rate")
 
-	args = parser.parse_args()
+	args, unparsed = parser.parse_known_args()
 	return args
 
 def train(dataloader, model, device, optimizer, criterion, args, epoch, epochs):
@@ -66,18 +66,19 @@ def valid(dataloader, model, device, optimizer, criterion, args, epoch, epochs):
 	accuracy = hit.true_divide(len(dataloader) * nni_params["batch_size"]).item()
 	return accuracy
 
-def main():
+def main(model_):
 	args = parse_args()
 	device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 	# load data
 	train_dataset = SupervisedData(args.train_img_path)
 	valid_dataset = SupervisedData(args.valid_img_path)
-	train_dataloader = DataLoader(serialize(train_dataset), batch_size = args.batchsize, shuffle = True, num_workers = 1, pin_memory = True)
-	valid_dataloader = DataLoader(serialize(valid_dataset), batch_size = args.batchsize, shuffle = False, num_workers = 1, pin_memory = True)
+	train_dataloader = DataLoader(train_dataset, batch_size = args.batchsize, shuffle = True, num_workers = 1, pin_memory = True)
+	valid_dataloader = DataLoader(valid_dataset, batch_size = args.batchsize, shuffle = False, num_workers = 1, pin_memory = True)
 
 	# build model
-	model = BaseModel().to(device).float()
+	model = model_().to(device).float()
+	print(model)
 	optimizer = torch.optim.Adam(model.parameters(), lr = args.lr, betas = (0.5, 0.9))
 	criterion = nn.CrossEntropyLoss().to(device).float()
 
@@ -96,6 +97,8 @@ if __name__ == '__main__':
 	exp_config.experiment_name = 'NAS_searcher'
 	exp_config.trial_concurrency = 1
 	exp_config.max_trial_number = 50
-	exp_config.experiment_working_directory = "C:\\Users\\Chen Tzu-An\\Desktop\\NAS-nni\\NAS\\NAS-experiment"
+	exp_config.experiment_working_directory = "/home/lab402-3090/Desktop/An/NAS-nni/NAS/NAS-experiment"
 	exp_config.training_service.use_active_gpu = True
 	exp.run(exp_config, 8081 + random.randint(0, 100))
+	for model_code in exp.export_top_models(formatter='dict'):
+		print(model_code)
