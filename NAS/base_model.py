@@ -90,8 +90,8 @@ class Bottleneck(nn.Module):
             self.bn2 = norm_layer(group_width)
 
         self.conv3 = nn.Conv2d(
-            group_width, planes * 4, kernel_size=1, bias=False)
-        self.bn3 = norm_layer(planes*4)
+            group_width, planes, kernel_size=1, bias=False)
+        self.bn3 = norm_layer(planes)
 
         if last_gamma:
             from torch.nn.init import zeros_
@@ -130,11 +130,25 @@ class Bottleneck(nn.Module):
 
         if self.downsample is not None:
             residual = self.downsample(x)
-
+        
         out += residual
         out = self.relu(out)
 
         return out
+
+@model_wrapper      # this decorator should be put on the out most PyTorch module
+class DownSampleBlock(nn.Module):
+    def __init__(self, in_channels, out_channels, kernel_size, stride):
+        super().__init__()
+        self.avgpool = nn.AvgPool2d(kernel_size, stride)
+        self.conv = nn.Conv2d(in_channels, out_channels, 1, 1)
+        self.norm = nn.BatchNorm2d(out_channels)
+
+    def forward(self, x):
+        x = self.avgpool(x)
+        x = self.conv(x)
+        x = self.norm(x)
+        return x
 
 @model_wrapper      # this decorator should be put on the out most PyTorch module
 class BaseModel(nn.Module):
@@ -148,18 +162,18 @@ class BaseModel(nn.Module):
 		layer4_out_dim = nn.ValueChoice([512, 1024, 2048])
 		self.stem = StemConv(3, hidden, stem_dim, 3)
 		self.layer1 = nn.Sequential(
-						Bottleneck(stem_dim, layer1_out_dim),
+						Bottleneck(stem_dim, layer1_out_dim, downsample = DownSampleBlock(stem_dim, layer1_out_dim, 1, 1)),
 						Bottleneck(layer1_out_dim, layer1_out_dim),
 						Bottleneck(layer1_out_dim, layer1_out_dim),
 					  )
 		self.layer2 = nn.Sequential(
-						Bottleneck(layer1_out_dim, layer2_out_dim),
+						Bottleneck(layer1_out_dim, layer2_out_dim, downsample = DownSampleBlock(layer1_out_dim, layer2_out_dim, 1, 1)),
 						Bottleneck(layer2_out_dim, layer2_out_dim),
 						Bottleneck(layer2_out_dim, layer2_out_dim),
 						Bottleneck(layer2_out_dim, layer2_out_dim),
 					  )
 		self.layer3 = nn.Sequential(
-						Bottleneck(layer2_out_dim, layer3_out_dim),
+						Bottleneck(layer2_out_dim, layer3_out_dim, downsample = DownSampleBlock(layer2_out_dim, layer3_out_dim, 1, 1)),
 						Bottleneck(layer3_out_dim, layer3_out_dim),
 						Bottleneck(layer3_out_dim, layer3_out_dim),
 						Bottleneck(layer3_out_dim, layer3_out_dim),
@@ -167,7 +181,7 @@ class BaseModel(nn.Module):
 						Bottleneck(layer3_out_dim, layer3_out_dim),
 					  )
 		self.layer4 = nn.Sequential(
-						Bottleneck(layer3_out_dim, layer4_out_dim),
+						Bottleneck(layer3_out_dim, layer4_out_dim, downsample = DownSampleBlock(layer3_out_dim, layer4_out_dim, 1, 1)),
 						Bottleneck(layer4_out_dim, layer4_out_dim),
 						Bottleneck(layer4_out_dim, layer4_out_dim),
 					  )
@@ -181,6 +195,7 @@ class BaseModel(nn.Module):
 		x = self.layer3(x)
 		x = self.layer4(x)
 		x = self.avgpool(x)
+		x = x.squeeze()
 		x = self.fc(x)
 		return x
 

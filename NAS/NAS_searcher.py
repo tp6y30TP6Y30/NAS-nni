@@ -27,7 +27,7 @@ def parse_args():
 	parser.add_argument('--epochs', default = 40, type = int,
 						help = "The total training epochs")
 
-	parser.add_argument('--batchsize', default = 40, type = int,
+	parser.add_argument('--batchsize', default = 20, type = int,
 						help = "The training batchsize")
 
 	parser.add_argument('--lr', default = 1e-3, type = float,
@@ -78,7 +78,6 @@ def main(model_):
 
 	# build model
 	model = model_().to(device).float()
-	print(model)
 	optimizer = torch.optim.Adam(model.parameters(), lr = args.lr, betas = (0.5, 0.9))
 	criterion = nn.CrossEntropyLoss().to(device).float()
 
@@ -90,6 +89,7 @@ def main(model_):
 	nni.report_final_result(acc)
 
 if __name__ == '__main__':
+	# main(BaseModel)
 	chosen_strategy = strategy.RegularizedEvolution()
 	evaluator = FunctionalEvaluator(main)
 	exp = RetiariiExperiment(serialize(BaseModel), evaluator, None, chosen_strategy)
